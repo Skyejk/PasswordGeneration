@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GuardPRO
 {
-    public partial class Form1 : Form
+    public partial class FormAuth : Form
     {
-        public Form1()
+        public FormAuth()
         {
             InitializeComponent();
         }
