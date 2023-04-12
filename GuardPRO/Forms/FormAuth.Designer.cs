@@ -43,11 +43,13 @@
             this.PBHeaderLogo = new System.Windows.Forms.PictureBox();
             this.PBHide = new System.Windows.Forms.PictureBox();
             this.PBView = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.penelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBTheme)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBHeaderLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBHide)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // headerText
@@ -101,7 +103,7 @@
             // TBLogin
             // 
             this.TBLogin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TBLogin.Location = new System.Drawing.Point(244, 151);
+            this.TBLogin.Location = new System.Drawing.Point(215, 221);
             this.TBLogin.Name = "TBLogin";
             this.TBLogin.Size = new System.Drawing.Size(170, 25);
             this.TBLogin.TabIndex = 26;
@@ -110,7 +112,7 @@
             // 
             this.labelPassword.AutoSize = true;
             this.labelPassword.Font = new System.Drawing.Font("Consolas", 11F);
-            this.labelPassword.Location = new System.Drawing.Point(156, 190);
+            this.labelPassword.Location = new System.Drawing.Point(127, 260);
             this.labelPassword.Name = "labelPassword";
             this.labelPassword.Size = new System.Drawing.Size(64, 18);
             this.labelPassword.TabIndex = 28;
@@ -120,7 +122,7 @@
             // 
             this.labelLogin.AutoSize = true;
             this.labelLogin.Font = new System.Drawing.Font("Consolas", 11F);
-            this.labelLogin.Location = new System.Drawing.Point(164, 153);
+            this.labelLogin.Location = new System.Drawing.Point(135, 223);
             this.labelLogin.Name = "labelLogin";
             this.labelLogin.Size = new System.Drawing.Size(56, 18);
             this.labelLogin.TabIndex = 27;
@@ -129,7 +131,7 @@
             // TBPassword
             // 
             this.TBPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TBPassword.Location = new System.Drawing.Point(244, 188);
+            this.TBPassword.Location = new System.Drawing.Point(215, 258);
             this.TBPassword.Name = "TBPassword";
             this.TBPassword.Size = new System.Drawing.Size(170, 25);
             this.TBPassword.TabIndex = 29;
@@ -141,7 +143,7 @@
             this.BTEnter.FlatAppearance.BorderSize = 0;
             this.BTEnter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTEnter.Font = new System.Drawing.Font("Consolas", 20F);
-            this.BTEnter.Location = new System.Drawing.Point(244, 219);
+            this.BTEnter.Location = new System.Drawing.Point(215, 289);
             this.BTEnter.Name = "BTEnter";
             this.BTEnter.Size = new System.Drawing.Size(170, 40);
             this.BTEnter.TabIndex = 24;
@@ -155,7 +157,7 @@
             this.BTCreateAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTCreateAccount.Font = new System.Drawing.Font("Consolas", 9F);
             this.BTCreateAccount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(114)))), ((int)(((byte)(120)))));
-            this.BTCreateAccount.Location = new System.Drawing.Point(244, 265);
+            this.BTCreateAccount.Location = new System.Drawing.Point(215, 335);
             this.BTCreateAccount.Name = "BTCreateAccount";
             this.BTCreateAccount.Size = new System.Drawing.Size(170, 20);
             this.BTCreateAccount.TabIndex = 25;
@@ -188,7 +190,7 @@
             // 
             this.PBHide.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PBHide.Image = global::GuardPRO.Properties.Resources.hide;
-            this.PBHide.Location = new System.Drawing.Point(420, 188);
+            this.PBHide.Location = new System.Drawing.Point(391, 258);
             this.PBHide.Name = "PBHide";
             this.PBHide.Size = new System.Drawing.Size(25, 25);
             this.PBHide.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -199,12 +201,22 @@
             // 
             this.PBView.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PBView.Image = global::GuardPRO.Properties.Resources.view;
-            this.PBView.Location = new System.Drawing.Point(420, 188);
+            this.PBView.Location = new System.Drawing.Point(391, 258);
             this.PBView.Name = "PBView";
             this.PBView.Size = new System.Drawing.Size(25, 25);
             this.PBView.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PBView.TabIndex = 23;
             this.PBView.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::GuardPRO.Properties.Resources.EmblemRussianFederation;
+            this.pictureBox1.Location = new System.Drawing.Point(215, 45);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(170, 170);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 13;
+            this.pictureBox1.TabStop = false;
             // 
             // FormAuth
             // 
@@ -213,6 +225,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(68)))), ((int)(((byte)(76)))));
             this.ClientSize = new System.Drawing.Size(600, 400);
             this.ControlBox = false;
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.penelHeader);
             this.Controls.Add(this.PBHide);
             this.Controls.Add(this.PBView);
@@ -237,6 +250,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.PBHeaderLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBHide)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -258,6 +272,7 @@
         private System.Windows.Forms.TextBox TBPassword;
         private System.Windows.Forms.Button BTEnter;
         private System.Windows.Forms.Button BTCreateAccount;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
