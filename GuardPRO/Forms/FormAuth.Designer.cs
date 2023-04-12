@@ -73,6 +73,7 @@
             this.BTMinBox.TabStop = false;
             this.BTMinBox.Text = "—";
             this.BTMinBox.UseVisualStyleBackColor = false;
+            this.BTMinBox.Click += new System.EventHandler(this.BTMinBox_Click);
             // 
             // BTExit
             // 
@@ -86,6 +87,7 @@
             this.BTExit.TabStop = false;
             this.BTExit.Text = "X";
             this.BTExit.UseVisualStyleBackColor = false;
+            this.BTExit.Click += new System.EventHandler(this.BTExit_Click);
             // 
             // penelHeader
             // 
@@ -99,6 +101,8 @@
             this.penelHeader.Name = "penelHeader";
             this.penelHeader.Size = new System.Drawing.Size(600, 30);
             this.penelHeader.TabIndex = 21;
+            this.penelHeader.MouseDown += new System.Windows.Forms.MouseEventHandler(this.penelHeader_MouseDown);
+            this.penelHeader.MouseMove += new System.Windows.Forms.MouseEventHandler(this.penelHeader_MouseMove);
             // 
             // TBLogin
             // 
@@ -107,6 +111,7 @@
             this.TBLogin.Name = "TBLogin";
             this.TBLogin.Size = new System.Drawing.Size(170, 25);
             this.TBLogin.TabIndex = 26;
+            this.TBLogin.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TBLogin_KeyDown);
             // 
             // labelPassword
             // 
@@ -136,6 +141,7 @@
             this.TBPassword.Size = new System.Drawing.Size(170, 25);
             this.TBPassword.TabIndex = 29;
             this.TBPassword.UseSystemPasswordChar = true;
+            this.TBPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TBPassword_KeyDown);
             // 
             // BTEnter
             // 
@@ -149,6 +155,7 @@
             this.BTEnter.TabIndex = 24;
             this.BTEnter.Text = "Войти";
             this.BTEnter.UseVisualStyleBackColor = false;
+            this.BTEnter.Click += new System.EventHandler(this.BTEnter_Click);
             // 
             // BTCreateAccount
             // 
@@ -175,6 +182,7 @@
             this.PBTheme.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PBTheme.TabIndex = 12;
             this.PBTheme.TabStop = false;
+            this.PBTheme.Click += new System.EventHandler(this.PBTheme_Click);
             // 
             // PBHeaderLogo
             // 
@@ -196,6 +204,7 @@
             this.PBHide.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PBHide.TabIndex = 22;
             this.PBHide.TabStop = false;
+            this.PBHide.Click += new System.EventHandler(this.PBHide_Click);
             // 
             // PBView
             // 
@@ -207,6 +216,7 @@
             this.PBView.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PBView.TabIndex = 23;
             this.PBView.TabStop = false;
+            this.PBView.Click += new System.EventHandler(this.PBView_Click);
             // 
             // pictureBox1
             // 
