@@ -166,10 +166,10 @@
             this.BTCreateAccount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(114)))), ((int)(((byte)(120)))));
             this.BTCreateAccount.Location = new System.Drawing.Point(215, 335);
             this.BTCreateAccount.Name = "BTCreateAccount";
-            this.BTCreateAccount.Size = new System.Drawing.Size(170, 20);
+            this.BTCreateAccount.Size = new System.Drawing.Size(170, 25);
             this.BTCreateAccount.TabIndex = 25;
             this.BTCreateAccount.TabStop = false;
-            this.BTCreateAccount.Text = "добавить пользователя";
+            this.BTCreateAccount.Text = "получить пароль";
             this.BTCreateAccount.UseVisualStyleBackColor = false;
             // 
             // PBTheme
