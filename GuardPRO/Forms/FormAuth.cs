@@ -1,9 +1,13 @@
-﻿using System;
+﻿using GuardPRO.Entities;
+using GuardPRO.Forms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.NetworkInformation;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -106,7 +110,7 @@ namespace GuardPRO
             BackColor = Color.FromArgb(56, 68, 76);
             ForeColor = Color.FromArgb(240, 242, 243);
             BTEnter.BackColor = Color.FromArgb(41, 50, 56);
-            BTCreateAccount.ForeColor = Color.FromArgb(105, 114, 120);
+            BTGetPass.ForeColor = Color.FromArgb(105, 114, 120);
             penelHeader.BackColor = Color.FromArgb(54, 66, 74);
         }
         //Светлая тема
@@ -115,17 +119,116 @@ namespace GuardPRO
             BackColor = Color.FromArgb(240, 242, 243);
             ForeColor = Color.FromArgb(56, 68, 76);
             BTEnter.BackColor = Color.FromArgb(201, 203, 205);
-            BTCreateAccount.ForeColor = Color.FromArgb(105, 114, 120);
+            BTGetPass.ForeColor = Color.FromArgb(105, 114, 120);
             penelHeader.BackColor = Color.FromArgb(236, 238, 240);
         }
 
-
-
+        /// <summary>
+        /// 
+        /// Application Client Logic
+        /// 
+        /// </summary>
         private void BTEnter_Click(object sender, EventArgs e)
         {
-
+            string login = TBLogin.Text;
+            string macAddress = GetMacAddress();
+            string salt = GetSalt();
+            string encryptMacAddress = EncryptMacAddress(macAddress, salt);
+            try {
+                var user = SaltEntities.GetContext().Users.Where(u => u.Username == login && u.Salt == salt && u.PasswordHash == encryptMacAddress).FirstOrDefault();
+                if (user != null) { 
+                    CustomMessage("Вы авторизировались в приложении", "Успех", MessageBoxIcon.Information);
+                } else {
+                    CustomMessage("Пользователя с такими авторизационными данными не обнаружено.", "Проверьте вводимые данные", MessageBoxIcon.Information);
+                }
+            } catch(Exception ex) {
+                CustomMessage($@"Что-то пошло не так, обратитесь в службу поддержки с этим кодом: {ex.Message}", null, MessageBoxIcon.Warning);
+            }
         }
 
-        
+        private void BTGetPass_Click(object sender, EventArgs e)
+        {
+            FormGetPass formGetPass = new FormGetPass();
+            formGetPass.ShowDialog();
+        }
+        //шифрование MAC адреса
+        public static string EncryptMacAddress(string macAddress, string salt)
+        {
+            // Проверка входных параметров
+            if (string.IsNullOrEmpty(macAddress))
+            {
+                throw new ArgumentException("Mac Address should not be empty or null", "macAddress");
+            }
+
+            if (string.IsNullOrEmpty(salt))
+            {
+                throw new ArgumentException("Salt should not be empty or null", "salt");
+            }
+
+            // Приведение Mac Address к нижнему регистру и удаление разделителей
+            macAddress = macAddress.ToLower().Replace("-", "").Replace(":", "");
+
+            // Добавление соли в конец Mac Address
+            string saltedMacAddress = macAddress + salt;
+
+            // Вычисление MD5 хеша соленого Mac Address
+            using (MD5 md5 = MD5.Create())
+            {
+                byte[] hashBytes = md5.ComputeHash(Encoding.UTF8.GetBytes(saltedMacAddress));
+
+                // Преобразование байтов хеша в строку в шестнадцатеричном формате
+                StringBuilder sb = new StringBuilder();
+                for (int i = 0; i < hashBytes.Length; i++)
+                {
+                    sb.Append(hashBytes[i].ToString("x2"));
+                }
+
+                return sb.ToString();
+            }
+        }
+        //Получение MAC адреса
+        private string GetMacAddress()
+        {
+            var networkInterfaces = NetworkInterface.GetAllNetworkInterfaces();
+            var macAddress = string.Empty;
+            foreach (var networkInterface in networkInterfaces)
+            {
+                if (networkInterface.NetworkInterfaceType == NetworkInterfaceType.Wireless80211 ||
+                    networkInterface.NetworkInterfaceType == NetworkInterfaceType.Ethernet)
+                {
+                    macAddress = networkInterface.GetPhysicalAddress().ToString();
+                    break;
+                }
+            }
+            return macAddress;
+        }
+        //Получение соли
+        private string GetSalt()
+        {
+            string salt = System.Net.Dns.GetHostName();
+            // Приведение соли к нижнему регистру и удаление разделителей
+            salt = salt.ToLower()
+                .Replace(" ", "").Replace("!", "")
+                .Replace("#", "").Replace("$", "")
+                .Replace("%", "").Replace("&", "")
+                .Replace("(", "").Replace(")", "")
+                .Replace("[", "").Replace("]", "")
+                .Replace("{", "").Replace("}", "")
+                .Replace("<", "").Replace(">", "")
+                .Replace("\\", "").Replace("/", "")
+                .Replace(@"""", "").Replace("'", "")
+                .Replace(",", "").Replace(".", "")
+                .Replace("*", "").Replace("+", "")
+                .Replace(":", "").Replace(";", "")
+                .Replace("=", "").Replace("?", "")
+                .Replace("|", "").Replace("-", "")
+                .Replace("_", "").Replace("^", "")
+                .Replace("@", "").Replace("`", "")
+                .Replace("~", "");
+            return salt;
+        }
+        public void CustomMessage(string txt, string head, MessageBoxIcon icon) {
+            MessageBox.Show(txt, head, MessageBoxButtons.OK, icon, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+        }
     }
 }

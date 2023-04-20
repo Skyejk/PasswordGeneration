@@ -33,17 +33,17 @@
             this.BTMinBox = new System.Windows.Forms.Button();
             this.BTExit = new System.Windows.Forms.Button();
             this.penelHeader = new System.Windows.Forms.Panel();
-            this.TBLogin = new System.Windows.Forms.TextBox();
-            this.labelPassword = new System.Windows.Forms.Label();
-            this.labelLogin = new System.Windows.Forms.Label();
-            this.TBPassword = new System.Windows.Forms.TextBox();
-            this.BTEnter = new System.Windows.Forms.Button();
-            this.BTCreateAccount = new System.Windows.Forms.Button();
             this.PBTheme = new System.Windows.Forms.PictureBox();
             this.PBHeaderLogo = new System.Windows.Forms.PictureBox();
+            this.labelPassword = new System.Windows.Forms.Label();
+            this.TBPassword = new System.Windows.Forms.TextBox();
+            this.BTEnter = new System.Windows.Forms.Button();
+            this.BTGetPass = new System.Windows.Forms.Button();
             this.PBHide = new System.Windows.Forms.PictureBox();
             this.PBView = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.labelLogin = new System.Windows.Forms.Label();
+            this.TBLogin = new System.Windows.Forms.TextBox();
             this.penelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBTheme)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBHeaderLogo)).BeginInit();
@@ -104,14 +104,27 @@
             this.penelHeader.MouseDown += new System.Windows.Forms.MouseEventHandler(this.penelHeader_MouseDown);
             this.penelHeader.MouseMove += new System.Windows.Forms.MouseEventHandler(this.penelHeader_MouseMove);
             // 
-            // TBLogin
+            // PBTheme
             // 
-            this.TBLogin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TBLogin.Location = new System.Drawing.Point(215, 221);
-            this.TBLogin.Name = "TBLogin";
-            this.TBLogin.Size = new System.Drawing.Size(170, 25);
-            this.TBLogin.TabIndex = 26;
-            this.TBLogin.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TBLogin_KeyDown);
+            this.PBTheme.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.PBTheme.Image = global::GuardPRO.Properties.Resources.theme;
+            this.PBTheme.Location = new System.Drawing.Point(499, 0);
+            this.PBTheme.Name = "PBTheme";
+            this.PBTheme.Size = new System.Drawing.Size(29, 29);
+            this.PBTheme.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PBTheme.TabIndex = 12;
+            this.PBTheme.TabStop = false;
+            this.PBTheme.Click += new System.EventHandler(this.PBTheme_Click);
+            // 
+            // PBHeaderLogo
+            // 
+            this.PBHeaderLogo.Image = global::GuardPRO.Properties.Resources.GuardProLogo;
+            this.PBHeaderLogo.Location = new System.Drawing.Point(3, 0);
+            this.PBHeaderLogo.Name = "PBHeaderLogo";
+            this.PBHeaderLogo.Size = new System.Drawing.Size(29, 29);
+            this.PBHeaderLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PBHeaderLogo.TabIndex = 12;
+            this.PBHeaderLogo.TabStop = false;
             // 
             // labelPassword
             // 
@@ -122,16 +135,6 @@
             this.labelPassword.Size = new System.Drawing.Size(64, 18);
             this.labelPassword.TabIndex = 28;
             this.labelPassword.Text = "Пароль:";
-            // 
-            // labelLogin
-            // 
-            this.labelLogin.AutoSize = true;
-            this.labelLogin.Font = new System.Drawing.Font("Consolas", 11F);
-            this.labelLogin.Location = new System.Drawing.Point(135, 223);
-            this.labelLogin.Name = "labelLogin";
-            this.labelLogin.Size = new System.Drawing.Size(56, 18);
-            this.labelLogin.TabIndex = 27;
-            this.labelLogin.Text = "Логин:";
             // 
             // TBPassword
             // 
@@ -157,42 +160,21 @@
             this.BTEnter.UseVisualStyleBackColor = false;
             this.BTEnter.Click += new System.EventHandler(this.BTEnter_Click);
             // 
-            // BTCreateAccount
+            // BTGetPass
             // 
-            this.BTCreateAccount.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BTCreateAccount.FlatAppearance.BorderSize = 0;
-            this.BTCreateAccount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BTCreateAccount.Font = new System.Drawing.Font("Consolas", 9F);
-            this.BTCreateAccount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(114)))), ((int)(((byte)(120)))));
-            this.BTCreateAccount.Location = new System.Drawing.Point(215, 335);
-            this.BTCreateAccount.Name = "BTCreateAccount";
-            this.BTCreateAccount.Size = new System.Drawing.Size(170, 25);
-            this.BTCreateAccount.TabIndex = 25;
-            this.BTCreateAccount.TabStop = false;
-            this.BTCreateAccount.Text = "получить пароль";
-            this.BTCreateAccount.UseVisualStyleBackColor = false;
-            // 
-            // PBTheme
-            // 
-            this.PBTheme.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.PBTheme.Image = global::GuardPRO.Properties.Resources.theme;
-            this.PBTheme.Location = new System.Drawing.Point(499, 0);
-            this.PBTheme.Name = "PBTheme";
-            this.PBTheme.Size = new System.Drawing.Size(29, 29);
-            this.PBTheme.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PBTheme.TabIndex = 12;
-            this.PBTheme.TabStop = false;
-            this.PBTheme.Click += new System.EventHandler(this.PBTheme_Click);
-            // 
-            // PBHeaderLogo
-            // 
-            this.PBHeaderLogo.Image = global::GuardPRO.Properties.Resources.GuardProLogo;
-            this.PBHeaderLogo.Location = new System.Drawing.Point(3, 0);
-            this.PBHeaderLogo.Name = "PBHeaderLogo";
-            this.PBHeaderLogo.Size = new System.Drawing.Size(29, 29);
-            this.PBHeaderLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PBHeaderLogo.TabIndex = 12;
-            this.PBHeaderLogo.TabStop = false;
+            this.BTGetPass.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BTGetPass.FlatAppearance.BorderSize = 0;
+            this.BTGetPass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BTGetPass.Font = new System.Drawing.Font("Consolas", 9F);
+            this.BTGetPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(114)))), ((int)(((byte)(120)))));
+            this.BTGetPass.Location = new System.Drawing.Point(215, 335);
+            this.BTGetPass.Name = "BTGetPass";
+            this.BTGetPass.Size = new System.Drawing.Size(170, 25);
+            this.BTGetPass.TabIndex = 25;
+            this.BTGetPass.TabStop = false;
+            this.BTGetPass.Text = "получить пароль";
+            this.BTGetPass.UseVisualStyleBackColor = false;
+            this.BTGetPass.Click += new System.EventHandler(this.BTGetPass_Click);
             // 
             // PBHide
             // 
@@ -228,6 +210,25 @@
             this.pictureBox1.TabIndex = 13;
             this.pictureBox1.TabStop = false;
             // 
+            // labelLogin
+            // 
+            this.labelLogin.AutoSize = true;
+            this.labelLogin.Font = new System.Drawing.Font("Consolas", 11F);
+            this.labelLogin.Location = new System.Drawing.Point(135, 223);
+            this.labelLogin.Name = "labelLogin";
+            this.labelLogin.Size = new System.Drawing.Size(56, 18);
+            this.labelLogin.TabIndex = 27;
+            this.labelLogin.Text = "Логин:";
+            // 
+            // TBLogin
+            // 
+            this.TBLogin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TBLogin.Location = new System.Drawing.Point(215, 221);
+            this.TBLogin.Name = "TBLogin";
+            this.TBLogin.Size = new System.Drawing.Size(170, 25);
+            this.TBLogin.TabIndex = 26;
+            this.TBLogin.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TBLogin_KeyDown);
+            // 
             // FormAuth
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
@@ -244,12 +245,12 @@
             this.Controls.Add(this.labelLogin);
             this.Controls.Add(this.TBPassword);
             this.Controls.Add(this.BTEnter);
-            this.Controls.Add(this.BTCreateAccount);
+            this.Controls.Add(this.BTGetPass);
             this.Font = new System.Drawing.Font("Consolas", 11F);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MinimumSize = new System.Drawing.Size(600, 400);
             this.Name = "FormAuth";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -276,13 +277,13 @@
         private System.Windows.Forms.PictureBox PBHeaderLogo;
         private System.Windows.Forms.PictureBox PBHide;
         private System.Windows.Forms.PictureBox PBView;
-        private System.Windows.Forms.TextBox TBLogin;
         private System.Windows.Forms.Label labelPassword;
-        private System.Windows.Forms.Label labelLogin;
         private System.Windows.Forms.TextBox TBPassword;
         private System.Windows.Forms.Button BTEnter;
-        private System.Windows.Forms.Button BTCreateAccount;
+        private System.Windows.Forms.Button BTGetPass;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label labelLogin;
+        private System.Windows.Forms.TextBox TBLogin;
     }
 }
 
