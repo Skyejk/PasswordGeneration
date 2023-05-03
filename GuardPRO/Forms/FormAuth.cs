@@ -1,5 +1,4 @@
-﻿using GuardPRO.Entities;
-using GuardPRO.Forms;
+﻿using GuardPRO.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -44,15 +43,10 @@ namespace GuardPRO
             Opacity = .90;
             PBView.Visible = false;
             TBPassword.MaxLength = 50;
-            TBLogin.MaxLength = 50;
         }
 
         //Переход с поля ввода логина на поле ввода пароля по клавише Enter
-        private void TBLogin_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            { TBPassword.Focus(); }
-        }
+        
         //Переход с поля пароля на кнопку ввода по клавише Enter
         private void TBPassword_KeyDown(object sender, KeyEventArgs e)
         {
@@ -128,19 +122,20 @@ namespace GuardPRO
         /// Application Client Logic
         /// 
         /// </summary>
-        private void BTEnter_Click(object sender, EventArgs e)
-        {
-            string login = TBLogin.Text;
-            string macAddress = GetMacAddress();
-            string salt = GetSalt();
-            string encryptMacAddress = EncryptMacAddress(macAddress, salt);
+        private void BTEnter_Click(object sender, EventArgs e) {            
             try {
-                var user = SaltEntities.GetContext().Users.Where(u => u.Username == login && u.Salt == salt && u.PasswordHash == encryptMacAddress).FirstOrDefault();
-                if (user != null) { 
-                    CustomMessage("Вы авторизировались в приложении", "Успех", MessageBoxIcon.Information);
+                string pass = TBPassword.Text;
+                string encryptMacAddress = EncryptMacAddress(GetMacAddress(), GetSalt());
+                if (pass != encryptMacAddress)
+                {
+                    CustomMessage("Введенный ключ неверен. Убедитесь, что вы правильно ввели его.", null, MessageBoxIcon.Error);
                 } else {
-                    CustomMessage("Пользователя с такими авторизационными данными не обнаружено.", "Проверьте вводимые данные", MessageBoxIcon.Information);
+                    ApplicationMainForm mainForm = new ApplicationMainForm();
+                    mainForm.Show();
+                    this.Hide();
+
                 }
+
             } catch(Exception ex) {
                 CustomMessage($@"Что-то пошло не так, обратитесь в службу поддержки с этим кодом: {ex.Message}", null, MessageBoxIcon.Warning);
             }

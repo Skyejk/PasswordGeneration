@@ -35,14 +35,11 @@
             this.headerText = new System.Windows.Forms.Label();
             this.BTExit = new System.Windows.Forms.Button();
             this.panelWarning = new System.Windows.Forms.Panel();
+            this.lblWarnText = new System.Windows.Forms.Label();
+            this.lblWarning = new System.Windows.Forms.Label();
             this.TBPassGen = new System.Windows.Forms.TextBox();
             this.BTGenerate = new System.Windows.Forms.Button();
             this.lblGen = new System.Windows.Forms.Label();
-            this.lblWarning = new System.Windows.Forms.Label();
-            this.lblWarnText = new System.Windows.Forms.Label();
-            this.TBUserName = new System.Windows.Forms.TextBox();
-            this.lblUserName = new System.Windows.Forms.Label();
-            this.BTForgotMyPass = new System.Windows.Forms.Button();
             this.penelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PBTheme)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PBHeaderLogo)).BeginInit();
@@ -116,8 +113,29 @@
             this.panelWarning.Controls.Add(this.lblWarning);
             this.panelWarning.Location = new System.Drawing.Point(30, 53);
             this.panelWarning.Name = "panelWarning";
-            this.panelWarning.Size = new System.Drawing.Size(540, 109);
+            this.panelWarning.Size = new System.Drawing.Size(540, 126);
             this.panelWarning.TabIndex = 25;
+            // 
+            // lblWarnText
+            // 
+            this.lblWarnText.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblWarnText.Location = new System.Drawing.Point(3, 47);
+            this.lblWarnText.Name = "lblWarnText";
+            this.lblWarnText.Size = new System.Drawing.Size(534, 83);
+            this.lblWarnText.TabIndex = 28;
+            this.lblWarnText.Text = "Сгенерированный здесь код нужен вам для получения ключа. Отправьте его компании, " +
+    "после чего вас попросят произвести покупку.\r\n";
+            this.lblWarnText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblWarning
+            // 
+            this.lblWarning.Font = new System.Drawing.Font("Consolas", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblWarning.Location = new System.Drawing.Point(3, 0);
+            this.lblWarning.Name = "lblWarning";
+            this.lblWarning.Size = new System.Drawing.Size(537, 47);
+            this.lblWarning.TabIndex = 28;
+            this.lblWarning.Text = "ВНИМАНИЕ!";
+            this.lblWarning.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // TBPassGen
             // 
@@ -133,11 +151,11 @@
             this.BTGenerate.FlatAppearance.BorderSize = 0;
             this.BTGenerate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BTGenerate.Font = new System.Drawing.Font("Consolas", 20F);
-            this.BTGenerate.Location = new System.Drawing.Point(164, 203);
+            this.BTGenerate.Location = new System.Drawing.Point(164, 225);
             this.BTGenerate.Name = "BTGenerate";
-            this.BTGenerate.Size = new System.Drawing.Size(273, 40);
+            this.BTGenerate.Size = new System.Drawing.Size(290, 40);
             this.BTGenerate.TabIndex = 24;
-            this.BTGenerate.Text = "Генерация шифра";
+            this.BTGenerate.Text = "Сгенерировать код";
             this.BTGenerate.UseVisualStyleBackColor = false;
             this.BTGenerate.Click += new System.EventHandler(this.BTEnter_Click);
             // 
@@ -146,62 +164,9 @@
             this.lblGen.AutoSize = true;
             this.lblGen.Location = new System.Drawing.Point(27, 308);
             this.lblGen.Name = "lblGen";
-            this.lblGen.Size = new System.Drawing.Size(96, 18);
+            this.lblGen.Size = new System.Drawing.Size(72, 18);
             this.lblGen.TabIndex = 27;
-            this.lblGen.Text = "Ваш пароль:";
-            // 
-            // lblWarning
-            // 
-            this.lblWarning.Font = new System.Drawing.Font("Consolas", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblWarning.Location = new System.Drawing.Point(3, 0);
-            this.lblWarning.Name = "lblWarning";
-            this.lblWarning.Size = new System.Drawing.Size(537, 47);
-            this.lblWarning.TabIndex = 28;
-            this.lblWarning.Text = "ВНИМАНИЕ!";
-            this.lblWarning.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblWarnText
-            // 
-            this.lblWarnText.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblWarnText.Location = new System.Drawing.Point(3, 47);
-            this.lblWarnText.Name = "lblWarnText";
-            this.lblWarnText.Size = new System.Drawing.Size(534, 83);
-            this.lblWarnText.TabIndex = 28;
-            this.lblWarnText.Text = "Не передавайте сгенерированный здесь пароль никому.\r\nМы не несем ответственности " +
-    "за ваши ошибки.\r\n";
-            this.lblWarnText.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // TBUserName
-            // 
-            this.TBUserName.Location = new System.Drawing.Point(164, 274);
-            this.TBUserName.Name = "TBUserName";
-            this.TBUserName.Size = new System.Drawing.Size(406, 25);
-            this.TBUserName.TabIndex = 26;
-            // 
-            // lblUserName
-            // 
-            this.lblUserName.AutoSize = true;
-            this.lblUserName.Location = new System.Drawing.Point(27, 277);
-            this.lblUserName.Name = "lblUserName";
-            this.lblUserName.Size = new System.Drawing.Size(88, 18);
-            this.lblUserName.TabIndex = 27;
-            this.lblUserName.Text = "Ваш логин:";
-            // 
-            // BTForgotMyPass
-            // 
-            this.BTForgotMyPass.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BTForgotMyPass.FlatAppearance.BorderSize = 0;
-            this.BTForgotMyPass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BTForgotMyPass.Font = new System.Drawing.Font("Consolas", 9F);
-            this.BTForgotMyPass.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(114)))), ((int)(((byte)(120)))));
-            this.BTForgotMyPass.Location = new System.Drawing.Point(215, 348);
-            this.BTForgotMyPass.Name = "BTForgotMyPass";
-            this.BTForgotMyPass.Size = new System.Drawing.Size(170, 25);
-            this.BTForgotMyPass.TabIndex = 25;
-            this.BTForgotMyPass.TabStop = false;
-            this.BTForgotMyPass.Text = "забыли пароль?";
-            this.BTForgotMyPass.UseVisualStyleBackColor = false;
-            this.BTForgotMyPass.Click += new System.EventHandler(this.BTGetPass_Click);
+            this.lblGen.Text = "Ваш код:";
             // 
             // FormGetPass
             // 
@@ -211,14 +176,11 @@
             this.CancelButton = this.BTExit;
             this.ClientSize = new System.Drawing.Size(600, 400);
             this.ControlBox = false;
-            this.Controls.Add(this.lblUserName);
             this.Controls.Add(this.lblGen);
-            this.Controls.Add(this.TBUserName);
             this.Controls.Add(this.TBPassGen);
             this.Controls.Add(this.panelWarning);
             this.Controls.Add(this.penelHeader);
             this.Controls.Add(this.BTGenerate);
-            this.Controls.Add(this.BTForgotMyPass);
             this.Font = new System.Drawing.Font("Consolas", 11F);
             this.ForeColor = System.Drawing.Color.White;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -251,8 +213,5 @@
         private System.Windows.Forms.Label lblGen;
         private System.Windows.Forms.Label lblWarning;
         private System.Windows.Forms.Label lblWarnText;
-        private System.Windows.Forms.TextBox TBUserName;
-        private System.Windows.Forms.Label lblUserName;
-        private System.Windows.Forms.Button BTForgotMyPass;
     }
 }
