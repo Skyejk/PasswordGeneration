@@ -130,5 +130,11 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Help\Help.html" />
+    <Content Include="Help\screenshotDone.png" />
+    <Content Include="Help\screenshotEnter.png" />
+    <Content Include="Help\screenshotGet.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
