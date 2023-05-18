@@ -26,9 +26,9 @@ namespace GuardServer
         private static bool MainMenu()
         {
             Console.Clear();
-            Console.WriteLine("Добро пожаловать в терминальную версию приложения GuardPRO.");
+            Console.WriteLine("Добро пожаловать в терминальную версию приложения Защитник ПРО.");
             Console.WriteLine("Меню:");
-            Console.WriteLine("1. Создать ключ-пароль для клиентского приложения.");
+            Console.WriteLine("1. Расшифровать ключ-пароль для клиентского приложения.");
             Console.WriteLine("2. Показать справку по приложению.");
             Console.WriteLine("3. Отмена");
 
@@ -39,9 +39,17 @@ namespace GuardServer
                     PressAnyKey();
                     return true;
                 case "2":
-                    Console.WriteLine("Это приложение разработано специально для программы GuardPro,");
-                    Console.WriteLine("Оно является KeyGen версией, которая не подлежит распространению.");
-                    Console.WriteLine("Приложение написано студентом группы ПР-49, Ремезовым Кириллом.");
+                    Console.WriteLine();
+                    Console.WriteLine("Это приложение разработано специально для программы Защитник ПРО,");
+                    Console.WriteLine("Оно является версией активации основного приложения, которая не подлежит распространению.");
+                    Console.WriteLine("Чтобы произвести активацию, вам нужно получить ключ-пароль от пользователя, ");
+                    Console.WriteLine("после чего из главного меню выбрать первый пункт ");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine("'Расшифровать ключ-пароль для клиентского приложения'.");
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("После этого вы увидите сообщение с просьбой ввести клиентский ключ-пароль.");
+                    Console.WriteLine("Для избежания ошибок, не рекомендуется вводить ключ 'переписыванием', а воспользоваться 'копированием'.");
+                    Console.WriteLine("Далее вы сможете просмотреть промежуточные данные, если вам это необходимо");
                     PressAnyKey();
                     return true;
                 case "3":
@@ -66,17 +74,23 @@ namespace GuardServer
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("ВНИМАНИЕ!");
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("Введите клиентский код.");
+                Console.WriteLine("Введите клиентский ключ-пароль:");
                 Console.ForegroundColor = ConsoleColor.Red;
                 string encryptStr = Console.ReadLine();
                 Console.ForegroundColor = ConsoleColor.Green;
-                string decryptStr = EncryptionHelper.Decrypt(encryptStr, "passwordKey");
-                string minusMAC = decryptStr.Substring(decryptStr.Length - 12);
-                string minusSALT = decryptStr.Replace(minusMAC, "");
-                Console.WriteLine("Processing...");
-                Console.WriteLine($"Расшифровка данных: {minusMAC} {minusSALT}");
-                PressAnyKey();
-                Encryptions(minusMAC, minusSALT);
+                if (encryptStr.Length<1) {
+                    Console.WriteLine($"Вы не ввели клиентский ключ, попробуйте ещё раз.");
+                    PressAnyKey();
+                    Encrypted();
+                } else {
+                    string decryptStr = EncryptionHelper.Decrypt(encryptStr, "passwordKey");
+                    string minusMAC = decryptStr.Substring(decryptStr.Length - 12);
+                    string minusSALT = decryptStr.Replace(minusMAC, "");
+                    Console.WriteLine($"Расшифровка данных завершена: {minusMAC} {minusSALT}");
+                    PressAnyKey();
+                    Encryptions(minusMAC, minusSALT);
+                }
+                
             }
             catch(Exception ex) {
                 Console.WriteLine(ex.Message);
@@ -86,23 +100,15 @@ namespace GuardServer
             Console.Clear();
             Console.WriteLine("Какого типа ключ вы хотите создать?");
             Console.WriteLine("Меню:");
-            Console.WriteLine("1. Шифрование MD5 для актуальной версии");
-            Console.WriteLine("2. Шифрование SHA256 для расширенной версии - (недоступно)");
-            Console.WriteLine("3. Шифрование AES для lite версии - (недоступно)");
-            Console.WriteLine("4. Не создавать ключ.");
+            Console.WriteLine("1. Генерация ключа для актуальной версии");
+            Console.WriteLine("2. Отмена.");
 
             switch (Console.ReadLine().ToString())
             {
                 case "1":
-                    Console.WriteLine($"MD5: {EncryptionHelper.EncryptMD5(macAddress, salt)}");
+                    Console.WriteLine($"Ключ-пароль: {EncryptionHelper.EncryptMD5(macAddress, salt)}");
                     return false;
                 case "2":
-                    Console.WriteLine("Написано же, что недоступно!");
-                    return false;
-                case "3":
-                    Console.WriteLine("Написано же, что недоступно!");
-                    return false;
-                case "4":
                     Console.WriteLine("Окей, не будем");
                     return false;
                 default:
