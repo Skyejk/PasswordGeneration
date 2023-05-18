@@ -80,13 +80,13 @@
             // referenceToolStripMenuItem
             // 
             this.referenceToolStripMenuItem.Name = "referenceToolStripMenuItem";
-            this.referenceToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.referenceToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.referenceToolStripMenuItem.Text = "Справка";
             // 
             // intelligenceToolStripMenuItem
             // 
             this.intelligenceToolStripMenuItem.Name = "intelligenceToolStripMenuItem";
-            this.intelligenceToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.intelligenceToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
             this.intelligenceToolStripMenuItem.Text = "Сведения";
             this.intelligenceToolStripMenuItem.Click += new System.EventHandler(this.aboutMeToolStripMenuItem_Click);
             // 
@@ -104,7 +104,7 @@
             // 
             // helpProvider
             // 
-            this.helpProvider.HelpNamespace = "";
+            this.helpProvider.HelpNamespace = "http://remizov.student-krk.ru/";
             // 
             // ApplicationMainForm
             // 
@@ -119,6 +119,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "ApplicationMainForm";
+            this.helpProvider.SetShowHelp(this, true);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Главая";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
