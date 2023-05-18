@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace GuardPRO.Forms
 {
     public partial class ApplicationMainForm : Form
@@ -24,24 +25,30 @@ namespace GuardPRO.Forms
 
         private void aboutMeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CustomMessage("Я студент 4 курса, обучающийся на специальности " +
-                "'Программирование в компьютерных системах' " +
-                "меня зовут Ремезов Кирилл. ",
+            CustomMessage("Программа Защитник ПРО разработана студентом группы ПР-49, " +
+                "обучающемся на профиле 09.02.03 «Программирование в компьютерных системах», " +
+                "Ремезовым Кириллом Андреевичем.",
                 aboutMeToolStripMenuItem.Text,
-                MessageBoxIcon.Asterisk);
-        }
-
-        private void referenceToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            CustomMessage("Это модуль приложения, " +
-                "генерации пароля доступа к данным " +
-                "программы на основе ID оборудования",
-                referenceToolStripMenuItem.Text,
                 MessageBoxIcon.Asterisk);
         }
         public void CustomMessage(string txt, string head, MessageBoxIcon icon)
         {
             MessageBox.Show(txt, head, MessageBoxButtons.OK, icon, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+        }
+
+        private void ApplicationMainForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F1)
+            {
+                //
+                //Тут нужна справка.
+                //Button1Click(sender, e);
+            }
+        }
+
+        private void ApplicationMainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
